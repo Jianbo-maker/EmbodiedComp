@@ -1,0 +1,97 @@
+#DataConfig both for pi0 and pi05
+@dataclasses.dataclass(frozen=True)
+class LeRobotUR5DataConfig(DataConfigFactory):
+    """Config for training on UR5, using LeRobot dataset format.
+    copied from ur5.md
+    """
+    @override
+    def create(self, assets_dirs: pathlib.Path, model_config: _model.BaseModelConfig) -> DataConfig:
+        # Boilerplate for remapping keys from the LeRobot dataset. We assume no renaming needed here.
+        repack_transform = _transforms.Group(
+            inputs=[
+                _transforms.RepackTransform(
+                    {
+                        "base_rgb": "image",
+                        "wrist_rgb": "wrist_image",
+                        "state":"state",
+                        "actions": "actions",
+                        "prompt": "prompt",
+                    }
+                )
+            ]
+        )
+
+        # These transforms are the ones we wrote earlier.
+        data_transforms = _transforms.Group(
+            inputs=[ur5_policy.UR5Inputs(action_dim=model_config.action_dim, model_type=model_config.model_type)],
+            outputs=[ur5_policy.UR5Outputs()],
+        )
+
+        # Convert absolute actions to delta actions.
+        # By convention, we do not convert the gripper action (7th dimension).
+        delta_action_mask = _transforms.make_bool_mask(6, -1)
+        data_transforms = data_transforms.push(
+            inputs=[_transforms.DeltaActions(delta_action_mask)],
+            outputs=[_transforms.AbsoluteActions(delta_action_mask)],
+        )
+        model_transforms = ModelTransformFactory()(model_config)
+        return dataclasses.replace(
+            self.create_base_config(assets_dirs),
+            repack_transforms=repack_transform,
+            data_transforms=data_transforms,
+            model_transforms=model_transforms,
+        )
+
+#TrainConfig for pi0Fast fintuned weight
+TrainConfig(
+    name="pi0_fast_ur5",
+        model=pi0_fast.Pi0FASTConfig(
+            action_dim=7,action_horizon=10, paligemma_variant="gemma_2b_lora"
+        ),
+    data=LeRobotUR5DataConfig(
+        repo_id="qruisjtu/300MixLift",
+        assets=AssetsConfig(
+            assets_dir="assets/pi0_fast_ur5",
+            asset_id="qruisjtu/300MixLift", 
+        ),
+        base_config=DataConfig(
+            prompt_from_task=True,
+        ),
+    ),
+    weight_loader=weight_loaders.CheckpointWeightLoader("checkpoints/pi0_fast_ur5_new/newexp01/14999/params"),
+    num_train_steps=10_005,
+    freeze_filter=pi0.Pi0Config(
+            paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora"
+        ).get_freeze_filter(),
+    ema_decay=None,
+    ),
+    
+#Config for Pi05 fintuned weight
+TrainConfig(
+        name="pi05_ur5",
+        model=pi0_config.Pi0Config(
+            pi05=True,
+            action_horizon=10,
+            # action_dim =7,
+            discrete_state_input=False,
+            paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora"
+        ),
+        data=LeRobotUR5DataConfig(
+            
+            repo_id="qruisjtu/300MixLift",
+            base_config=DataConfig(prompt_from_task=True),
+            assets=AssetsConfig(
+                # Important: reuse the original DROID norm stats during fine-tuning!
+                assets_dir="assets/pi05_ur5_lift_2",
+                asset_id="qruisjtu/300MixLift",
+            ),
+        ),
+        weight_loader=weight_loaders.CheckpointWeightLoader("gs://openpi-assets/checkpoints/pi05_base/params"),
+        num_train_steps=20_000,
+        batch_size=32,
+        freeze_filter=pi0_config.Pi0Config(
+            pi05=True,
+            paligemma_variant="gemma_2b_lora", action_expert_variant="gemma_300m_lora"
+        ).get_freeze_filter(),
+        ema_decay=None,
+    ),

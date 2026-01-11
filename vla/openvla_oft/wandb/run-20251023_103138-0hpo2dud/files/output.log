@@ -1,0 +1,828 @@
+Detected constants:
+	NUM_ACTIONS_CHUNK: 8
+	ACTION_DIM: 7
+	PROPRIO_DIM: 8
+	ACTION_PROPRIO_NORMALIZATION_TYPE: bounds_q99
+Created backup of original config at: /home/qingrui/robosuite/Agents/openvla-oft/openvla-7b/config.json.back.20251023_103150
+Updated config.json at: /home/qingrui/robosuite/Agents/openvla-oft/openvla-7b/config.json
+Changes made:
+  - Set AutoConfig to "configuration_prismatic.OpenVLAConfig"
+  - Set AutoModelForVision2Seq to "modeling_prismatic.OpenVLAForActionPrediction"
+/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4903: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  warnings.warn(  # warn only once
+Loading checkpoint shards: 100%|██████████████████| 3/3 [00:00<00:00,  4.76it/s]
+trainable params: 110,828,288 || all params: 7,652,065,472 || trainable%: 1.4483
+# trainable params in proprio_projector: 16818176
+# trainable params in action_head: 151117831
+# total trainable params: 278764295
+Traceback (most recent call last):
+  File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 1142, in <module>
+    finetune()
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/draccus/argparsing.py", line 203, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 978, in finetune
+    train_dataset = RLDSDataset(
+  File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/datasets.py", line 169, in __init__
+    self.dataset, self.dataset_length, self.dataset_statistics = self.make_dataset(rlds_config)
+  File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/datasets.py", line 172, in make_dataset
+    return make_interleaved_dataset(**rlds_config)
+  File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py", line 507, in make_interleaved_dataset
+    _, dataset_statistics = make_dataset_from_rlds(**data_kwargs, train=train)
+  File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py", line 202, in make_dataset_from_rlds
+    builder = tfds.builder(name, data_dir=data_dir)
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/logging/__init__.py", line 166, in __call__
+    return function(*args, **kwargs)
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/load.py", line 215, in builder
+    raise not_found_error
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/load.py", line 196, in builder
+    cls = builder_cls(str(name))
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/load.py", line 121, in builder_cls
+    cls = registered.imported_builder_cls(str(ds_name))
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/registered.py", line 301, in imported_builder_cls
+    raise DatasetNotFoundError(f'Dataset {name} not found.')
+tensorflow_datasets.core.registered.DatasetNotFoundError: Dataset robosuite_rlds not found.
+Available datasets:
+	- abstract_reasoning
+	- accentdb
+	- aeslc
+	- aflw2k3d
+	- ag_news_subset
+	- ai2_arc
+	- ai2_arc_with_ir
+	- amazon_us_reviews
+	- anli
+	- answer_equivalence
+	- arc
+	- asqa
+	- asset
+	- assin2
+	- bair_robot_pushing_small
+	- bccd
+	- beans
+	- bee_dataset
+	- beir
+	- big_patent
+	- bigearthnet
+	- billsum
+	- binarized_mnist
+	- binary_alpha_digits
+	- ble_wind_field
+	- blimp
+	- booksum
+	- bool_q
+	- bot_adversarial_dialogue
+	- bucc
+	- c4
+	- c4_wsrs
+	- caltech101
+	- caltech_birds2010
+	- caltech_birds2011
+	- cardiotox
+	- cars196
+	- cassava
+	- cats_vs_dogs
+	- celeb_a
+	- celeb_a_hq
+	- cfq
+	- cherry_blossoms
+	- chexpert
+	- cifar10
+	- cifar100
+	- cifar100_n
+	- cifar10_1
+	- cifar10_corrupted
+	- cifar10_h
+	- cifar10_n
+	- citrus_leaves
+	- cityscapes
+	- civil_comments
+	- clevr
+	- clic
+	- clinc_oos
+	- cmaterdb
+	- cnn_dailymail
+	- coco
+	- coco_captions
+	- coil100
+	- colorectal_histology
+	- colorectal_histology_large
+	- common_voice
+	- conll2002
+	- conll2003
+	- controlled_noisy_web_labels
+	- coqa
+	- corr2cause
+	- cos_e
+	- cosmos_qa
+	- covid19
+	- covid19sum
+	- crema_d
+	- criteo
+	- cs_restaurants
+	- curated_breast_imaging_ddsm
+	- cycle_gan
+	- d4rl_adroit_door
+	- d4rl_adroit_hammer
+	- d4rl_adroit_pen
+	- d4rl_adroit_relocate
+	- d4rl_antmaze
+	- d4rl_mujoco_ant
+	- d4rl_mujoco_halfcheetah
+	- d4rl_mujoco_hopper
+	- d4rl_mujoco_walker2d
+	- dart
+	- databricks_dolly
+	- davis
+	- deep1b
+	- deep_weeds
+	- definite_pronoun_resolution
+	- dementiabank
+	- diabetic_retinopathy_detection
+	- diamonds
+	- div2k
+	- dmlab
+	- doc_nli
+	- dolphin_number_word
+	- domainnet
+	- downsampled_imagenet
+	- drop
+	- dsprites
+	- dtd
+	- duke_ultrasound
+	- e2e_cleaned
+	- efron_morris75
+	- emnist
+	- eraser_multi_rc
+	- esnli
+	- eurosat
+	- fashion_mnist
+	- flic
+	- flores
+	- food101
+	- forest_fires
+	- fuss
+	- gap
+	- geirhos_conflict_stimuli
+	- gem
+	- genomics_ood
+	- german_credit_numeric
+	- gigaword
+	- glove100_angular
+	- glue
+	- goemotions
+	- gov_report
+	- gpt3
+	- gref
+	- groove
+	- grounded_scan
+	- gsm8k
+	- gtzan
+	- gtzan_music_speech
+	- hellaswag
+	- higgs
+	- hillstrom
+	- horses_or_humans
+	- howell
+	- i_naturalist2017
+	- i_naturalist2018
+	- i_naturalist2021
+	- imagenet2012
+	- imagenet2012_corrupted
+	- imagenet2012_fewshot
+	- imagenet2012_multilabel
+	- imagenet2012_real
+	- imagenet2012_subset
+	- imagenet_a
+	- imagenet_lt
+	- imagenet_pi
+	- imagenet_r
+	- imagenet_resized
+	- imagenet_sketch
+	- imagenet_v2
+	- imagenette
+	- imagewang
+	- imdb_reviews
+	- irc_disentanglement
+	- iris
+	- istella
+	- kddcup99
+	- kitti
+	- kmnist
+	- laion400m
+	- lambada
+	- lfw
+	- librispeech
+	- librispeech_lm
+	- libritts
+	- ljspeech
+	- lm1b
+	- locomotion
+	- lost_and_found
+	- lsun
+	- lvis
+	- malaria
+	- math_dataset
+	- math_qa
+	- mctaco
+	- media_sum
+	- mlqa
+	- mnist
+	- mnist_corrupted
+	- movie_lens
+	- movie_rationales
+	- movielens
+	- moving_mnist
+	- mrqa
+	- mslr_web
+	- mt_opt
+	- mtnt
+	- multi_news
+	- multi_nli
+	- multi_nli_mismatch
+	- natural_instructions
+	- natural_questions
+	- natural_questions_open
+	- newsroom
+	- nsynth
+	- nyu_depth_v2
+	- ogbg_molpcba
+	- omniglot
+	- open_images_challenge2019_detection
+	- open_images_v4
+	- openbookqa
+	- opinion_abstracts
+	- opinosis
+	- opus
+	- oxford_flowers102
+	- oxford_iiit_pet
+	- para_crawl
+	- pass
+	- patch_camelyon
+	- paws_wiki
+	- paws_x_wiki
+	- penguins
+	- pet_finder
+	- pg19
+	- piqa
+	- places365_small
+	- placesfull
+	- plant_leaves
+	- plant_village
+	- plantae_k
+	- protein_net
+	- q_re_cc
+	- qa4mre
+	- qasc
+	- quac
+	- quality
+	- quickdraw_bitmap
+	- race
+	- radon
+	- real_toxicity_prompts
+	- reddit
+	- reddit_disentanglement
+	- reddit_tifu
+	- ref_coco
+	- resisc45
+	- rlu_atari
+	- rlu_atari_checkpoints
+	- rlu_atari_checkpoints_ordered
+	- rlu_control_suite
+	- rlu_dmlab_explore_object_rewards_few
+	- rlu_dmlab_explore_object_rewards_many
+	- rlu_dmlab_rooms_select_nonmatching_object
+	- rlu_dmlab_rooms_watermaze
+	- rlu_dmlab_seekavoid_arena01
+	- rlu_locomotion
+	- rlu_rwrl
+	- robomimic_mg
+	- robomimic_mh
+	- robomimic_ph
+	- robonet
+	- robosuite_panda_pick_place_can
+	- rock_paper_scissors
+	- rock_you
+	- s3o4d
+	- salient_span_wikipedia
+	- samsum
+	- savee
+	- scan
+	- scene_parse150
+	- schema_guided_dialogue
+	- sci_tail
+	- scicite
+	- scientific_papers
+	- scrolls
+	- segment_anything
+	- sentiment140
+	- shapes3d
+	- sift1m
+	- simpte
+	- siscore
+	- smallnorb
+	- smartwatch_gestures
+	- snli
+	- so2sat
+	- speech_commands
+	- spoken_digit
+	- squad
+	- squad_question_generation
+	- stanford_dogs
+	- stanford_online_products
+	- star_cfq
+	- starcraft_video
+	- stl10
+	- story_cloze
+	- summscreen
+	- sun397
+	- super_glue
+	- svhn_cropped
+	- symmetric_solids
+	- tao
+	- tatoeba
+	- ted_hrlr_translate
+	- ted_multi_translate
+	- tedlium
+	- tf_flowers
+	- the300w_lp
+	- tiny_shakespeare
+	- titanic
+	- trec
+	- trivia_qa
+	- tydi_qa
+	- uc_merced
+	- ucf101
+	- unified_qa
+	- universal_dependencies
+	- unnatural_instructions
+	- user_libri_audio
+	- user_libri_text
+	- vctk
+	- visual_domain_decathlon
+	- voc
+	- voxceleb
+	- voxforge
+	- waymo_open_dataset
+	- web_graph
+	- web_nlg
+	- web_questions
+	- webvid
+	- wider_face
+	- wiki40b
+	- wiki_auto
+	- wiki_bio
+	- wiki_dialog
+	- wiki_table_questions
+	- wiki_table_text
+	- wikiann
+	- wikihow
+	- wikipedia
+	- wikipedia_toxicity_subtypes
+	- wine_quality
+	- winogrande
+	- wit
+	- wit_kaggle
+	- wmt13_translate
+	- wmt14_translate
+	- wmt15_translate
+	- wmt16_translate
+	- wmt17_translate
+	- wmt18_translate
+	- wmt19_translate
+	- wmt_t2t_translate
+	- wmt_translate
+	- wordnet
+	- wsc273
+	- xnli
+	- xquad
+	- xsum
+	- xtreme_pawsx
+	- xtreme_pos
+	- xtreme_s
+	- xtreme_xnli
+	- yahoo_ltrc
+	- yelp_polarity_reviews
+	- yes_no
+	- youtube_vis
+
+Check that:
+    - if dataset was added recently, it may only be available
+      in `tfds-nightly`
+    - the dataset name is spelled correctly
+    - dataset class defines all base class abstract methods
+    - the module defining the dataset class is imported
+
+The builder directory /home/qingrui/tensorflow_datasets/robosuite_rlds doesn't contain any versions.
+No builder could be found in the directory: /home/qingrui/tensorflow_datasets for the builder: robosuite_rlds.
+No registered data_dirs were found in:
+	- /home/qingrui/tensorflow_datasets
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 1142, in <module>
+[rank0]:     finetune()
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/draccus/argparsing.py", line 203, in wrapper_inner
+[rank0]:     response = fn(cfg, *args, **kwargs)
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 978, in finetune
+[rank0]:     train_dataset = RLDSDataset(
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/datasets.py", line 169, in __init__
+[rank0]:     self.dataset, self.dataset_length, self.dataset_statistics = self.make_dataset(rlds_config)
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/datasets.py", line 172, in make_dataset
+[rank0]:     return make_interleaved_dataset(**rlds_config)
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py", line 507, in make_interleaved_dataset
+[rank0]:     _, dataset_statistics = make_dataset_from_rlds(**data_kwargs, train=train)
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py", line 202, in make_dataset_from_rlds
+[rank0]:     builder = tfds.builder(name, data_dir=data_dir)
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/contextlib.py", line 79, in inner
+[rank0]:     return func(*args, **kwds)
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/logging/__init__.py", line 166, in __call__
+[rank0]:     return function(*args, **kwargs)
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/load.py", line 215, in builder
+[rank0]:     raise not_found_error
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/load.py", line 196, in builder
+[rank0]:     cls = builder_cls(str(name))
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/contextlib.py", line 79, in inner
+[rank0]:     return func(*args, **kwds)
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/load.py", line 121, in builder_cls
+[rank0]:     cls = registered.imported_builder_cls(str(ds_name))
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/tensorflow_datasets/core/registered.py", line 301, in imported_builder_cls
+[rank0]:     raise DatasetNotFoundError(f'Dataset {name} not found.')
+[rank0]: tensorflow_datasets.core.registered.DatasetNotFoundError: Dataset robosuite_rlds not found.
+[rank0]: Available datasets:
+[rank0]: 	- abstract_reasoning
+[rank0]: 	- accentdb
+[rank0]: 	- aeslc
+[rank0]: 	- aflw2k3d
+[rank0]: 	- ag_news_subset
+[rank0]: 	- ai2_arc
+[rank0]: 	- ai2_arc_with_ir
+[rank0]: 	- amazon_us_reviews
+[rank0]: 	- anli
+[rank0]: 	- answer_equivalence
+[rank0]: 	- arc
+[rank0]: 	- asqa
+[rank0]: 	- asset
+[rank0]: 	- assin2
+[rank0]: 	- bair_robot_pushing_small
+[rank0]: 	- bccd
+[rank0]: 	- beans
+[rank0]: 	- bee_dataset
+[rank0]: 	- beir
+[rank0]: 	- big_patent
+[rank0]: 	- bigearthnet
+[rank0]: 	- billsum
+[rank0]: 	- binarized_mnist
+[rank0]: 	- binary_alpha_digits
+[rank0]: 	- ble_wind_field
+[rank0]: 	- blimp
+[rank0]: 	- booksum
+[rank0]: 	- bool_q
+[rank0]: 	- bot_adversarial_dialogue
+[rank0]: 	- bucc
+[rank0]: 	- c4
+[rank0]: 	- c4_wsrs
+[rank0]: 	- caltech101
+[rank0]: 	- caltech_birds2010
+[rank0]: 	- caltech_birds2011
+[rank0]: 	- cardiotox
+[rank0]: 	- cars196
+[rank0]: 	- cassava
+[rank0]: 	- cats_vs_dogs
+[rank0]: 	- celeb_a
+[rank0]: 	- celeb_a_hq
+[rank0]: 	- cfq
+[rank0]: 	- cherry_blossoms
+[rank0]: 	- chexpert
+[rank0]: 	- cifar10
+[rank0]: 	- cifar100
+[rank0]: 	- cifar100_n
+[rank0]: 	- cifar10_1
+[rank0]: 	- cifar10_corrupted
+[rank0]: 	- cifar10_h
+[rank0]: 	- cifar10_n
+[rank0]: 	- citrus_leaves
+[rank0]: 	- cityscapes
+[rank0]: 	- civil_comments
+[rank0]: 	- clevr
+[rank0]: 	- clic
+[rank0]: 	- clinc_oos
+[rank0]: 	- cmaterdb
+[rank0]: 	- cnn_dailymail
+[rank0]: 	- coco
+[rank0]: 	- coco_captions
+[rank0]: 	- coil100
+[rank0]: 	- colorectal_histology
+[rank0]: 	- colorectal_histology_large
+[rank0]: 	- common_voice
+[rank0]: 	- conll2002
+[rank0]: 	- conll2003
+[rank0]: 	- controlled_noisy_web_labels
+[rank0]: 	- coqa
+[rank0]: 	- corr2cause
+[rank0]: 	- cos_e
+[rank0]: 	- cosmos_qa
+[rank0]: 	- covid19
+[rank0]: 	- covid19sum
+[rank0]: 	- crema_d
+[rank0]: 	- criteo
+[rank0]: 	- cs_restaurants
+[rank0]: 	- curated_breast_imaging_ddsm
+[rank0]: 	- cycle_gan
+[rank0]: 	- d4rl_adroit_door
+[rank0]: 	- d4rl_adroit_hammer
+[rank0]: 	- d4rl_adroit_pen
+[rank0]: 	- d4rl_adroit_relocate
+[rank0]: 	- d4rl_antmaze
+[rank0]: 	- d4rl_mujoco_ant
+[rank0]: 	- d4rl_mujoco_halfcheetah
+[rank0]: 	- d4rl_mujoco_hopper
+[rank0]: 	- d4rl_mujoco_walker2d
+[rank0]: 	- dart
+[rank0]: 	- databricks_dolly
+[rank0]: 	- davis
+[rank0]: 	- deep1b
+[rank0]: 	- deep_weeds
+[rank0]: 	- definite_pronoun_resolution
+[rank0]: 	- dementiabank
+[rank0]: 	- diabetic_retinopathy_detection
+[rank0]: 	- diamonds
+[rank0]: 	- div2k
+[rank0]: 	- dmlab
+[rank0]: 	- doc_nli
+[rank0]: 	- dolphin_number_word
+[rank0]: 	- domainnet
+[rank0]: 	- downsampled_imagenet
+[rank0]: 	- drop
+[rank0]: 	- dsprites
+[rank0]: 	- dtd
+[rank0]: 	- duke_ultrasound
+[rank0]: 	- e2e_cleaned
+[rank0]: 	- efron_morris75
+[rank0]: 	- emnist
+[rank0]: 	- eraser_multi_rc
+[rank0]: 	- esnli
+[rank0]: 	- eurosat
+[rank0]: 	- fashion_mnist
+[rank0]: 	- flic
+[rank0]: 	- flores
+[rank0]: 	- food101
+[rank0]: 	- forest_fires
+[rank0]: 	- fuss
+[rank0]: 	- gap
+[rank0]: 	- geirhos_conflict_stimuli
+[rank0]: 	- gem
+[rank0]: 	- genomics_ood
+[rank0]: 	- german_credit_numeric
+[rank0]: 	- gigaword
+[rank0]: 	- glove100_angular
+[rank0]: 	- glue
+[rank0]: 	- goemotions
+[rank0]: 	- gov_report
+[rank0]: 	- gpt3
+[rank0]: 	- gref
+[rank0]: 	- groove
+[rank0]: 	- grounded_scan
+[rank0]: 	- gsm8k
+[rank0]: 	- gtzan
+[rank0]: 	- gtzan_music_speech
+[rank0]: 	- hellaswag
+[rank0]: 	- higgs
+[rank0]: 	- hillstrom
+[rank0]: 	- horses_or_humans
+[rank0]: 	- howell
+[rank0]: 	- i_naturalist2017
+[rank0]: 	- i_naturalist2018
+[rank0]: 	- i_naturalist2021
+[rank0]: 	- imagenet2012
+[rank0]: 	- imagenet2012_corrupted
+[rank0]: 	- imagenet2012_fewshot
+[rank0]: 	- imagenet2012_multilabel
+[rank0]: 	- imagenet2012_real
+[rank0]: 	- imagenet2012_subset
+[rank0]: 	- imagenet_a
+[rank0]: 	- imagenet_lt
+[rank0]: 	- imagenet_pi
+[rank0]: 	- imagenet_r
+[rank0]: 	- imagenet_resized
+[rank0]: 	- imagenet_sketch
+[rank0]: 	- imagenet_v2
+[rank0]: 	- imagenette
+[rank0]: 	- imagewang
+[rank0]: 	- imdb_reviews
+[rank0]: 	- irc_disentanglement
+[rank0]: 	- iris
+[rank0]: 	- istella
+[rank0]: 	- kddcup99
+[rank0]: 	- kitti
+[rank0]: 	- kmnist
+[rank0]: 	- laion400m
+[rank0]: 	- lambada
+[rank0]: 	- lfw
+[rank0]: 	- librispeech
+[rank0]: 	- librispeech_lm
+[rank0]: 	- libritts
+[rank0]: 	- ljspeech
+[rank0]: 	- lm1b
+[rank0]: 	- locomotion
+[rank0]: 	- lost_and_found
+[rank0]: 	- lsun
+[rank0]: 	- lvis
+[rank0]: 	- malaria
+[rank0]: 	- math_dataset
+[rank0]: 	- math_qa
+[rank0]: 	- mctaco
+[rank0]: 	- media_sum
+[rank0]: 	- mlqa
+[rank0]: 	- mnist
+[rank0]: 	- mnist_corrupted
+[rank0]: 	- movie_lens
+[rank0]: 	- movie_rationales
+[rank0]: 	- movielens
+[rank0]: 	- moving_mnist
+[rank0]: 	- mrqa
+[rank0]: 	- mslr_web
+[rank0]: 	- mt_opt
+[rank0]: 	- mtnt
+[rank0]: 	- multi_news
+[rank0]: 	- multi_nli
+[rank0]: 	- multi_nli_mismatch
+[rank0]: 	- natural_instructions
+[rank0]: 	- natural_questions
+[rank0]: 	- natural_questions_open
+[rank0]: 	- newsroom
+[rank0]: 	- nsynth
+[rank0]: 	- nyu_depth_v2
+[rank0]: 	- ogbg_molpcba
+[rank0]: 	- omniglot
+[rank0]: 	- open_images_challenge2019_detection
+[rank0]: 	- open_images_v4
+[rank0]: 	- openbookqa
+[rank0]: 	- opinion_abstracts
+[rank0]: 	- opinosis
+[rank0]: 	- opus
+[rank0]: 	- oxford_flowers102
+[rank0]: 	- oxford_iiit_pet
+[rank0]: 	- para_crawl
+[rank0]: 	- pass
+[rank0]: 	- patch_camelyon
+[rank0]: 	- paws_wiki
+[rank0]: 	- paws_x_wiki
+[rank0]: 	- penguins
+[rank0]: 	- pet_finder
+[rank0]: 	- pg19
+[rank0]: 	- piqa
+[rank0]: 	- places365_small
+[rank0]: 	- placesfull
+[rank0]: 	- plant_leaves
+[rank0]: 	- plant_village
+[rank0]: 	- plantae_k
+[rank0]: 	- protein_net
+[rank0]: 	- q_re_cc
+[rank0]: 	- qa4mre
+[rank0]: 	- qasc
+[rank0]: 	- quac
+[rank0]: 	- quality
+[rank0]: 	- quickdraw_bitmap
+[rank0]: 	- race
+[rank0]: 	- radon
+[rank0]: 	- real_toxicity_prompts
+[rank0]: 	- reddit
+[rank0]: 	- reddit_disentanglement
+[rank0]: 	- reddit_tifu
+[rank0]: 	- ref_coco
+[rank0]: 	- resisc45
+[rank0]: 	- rlu_atari
+[rank0]: 	- rlu_atari_checkpoints
+[rank0]: 	- rlu_atari_checkpoints_ordered
+[rank0]: 	- rlu_control_suite
+[rank0]: 	- rlu_dmlab_explore_object_rewards_few
+[rank0]: 	- rlu_dmlab_explore_object_rewards_many
+[rank0]: 	- rlu_dmlab_rooms_select_nonmatching_object
+[rank0]: 	- rlu_dmlab_rooms_watermaze
+[rank0]: 	- rlu_dmlab_seekavoid_arena01
+[rank0]: 	- rlu_locomotion
+[rank0]: 	- rlu_rwrl
+[rank0]: 	- robomimic_mg
+[rank0]: 	- robomimic_mh
+[rank0]: 	- robomimic_ph
+[rank0]: 	- robonet
+[rank0]: 	- robosuite_panda_pick_place_can
+[rank0]: 	- rock_paper_scissors
+[rank0]: 	- rock_you
+[rank0]: 	- s3o4d
+[rank0]: 	- salient_span_wikipedia
+[rank0]: 	- samsum
+[rank0]: 	- savee
+[rank0]: 	- scan
+[rank0]: 	- scene_parse150
+[rank0]: 	- schema_guided_dialogue
+[rank0]: 	- sci_tail
+[rank0]: 	- scicite
+[rank0]: 	- scientific_papers
+[rank0]: 	- scrolls
+[rank0]: 	- segment_anything
+[rank0]: 	- sentiment140
+[rank0]: 	- shapes3d
+[rank0]: 	- sift1m
+[rank0]: 	- simpte
+[rank0]: 	- siscore
+[rank0]: 	- smallnorb
+[rank0]: 	- smartwatch_gestures
+[rank0]: 	- snli
+[rank0]: 	- so2sat
+[rank0]: 	- speech_commands
+[rank0]: 	- spoken_digit
+[rank0]: 	- squad
+[rank0]: 	- squad_question_generation
+[rank0]: 	- stanford_dogs
+[rank0]: 	- stanford_online_products
+[rank0]: 	- star_cfq
+[rank0]: 	- starcraft_video
+[rank0]: 	- stl10
+[rank0]: 	- story_cloze
+[rank0]: 	- summscreen
+[rank0]: 	- sun397
+[rank0]: 	- super_glue
+[rank0]: 	- svhn_cropped
+[rank0]: 	- symmetric_solids
+[rank0]: 	- tao
+[rank0]: 	- tatoeba
+[rank0]: 	- ted_hrlr_translate
+[rank0]: 	- ted_multi_translate
+[rank0]: 	- tedlium
+[rank0]: 	- tf_flowers
+[rank0]: 	- the300w_lp
+[rank0]: 	- tiny_shakespeare
+[rank0]: 	- titanic
+[rank0]: 	- trec
+[rank0]: 	- trivia_qa
+[rank0]: 	- tydi_qa
+[rank0]: 	- uc_merced
+[rank0]: 	- ucf101
+[rank0]: 	- unified_qa
+[rank0]: 	- universal_dependencies
+[rank0]: 	- unnatural_instructions
+[rank0]: 	- user_libri_audio
+[rank0]: 	- user_libri_text
+[rank0]: 	- vctk
+[rank0]: 	- visual_domain_decathlon
+[rank0]: 	- voc
+[rank0]: 	- voxceleb
+[rank0]: 	- voxforge
+[rank0]: 	- waymo_open_dataset
+[rank0]: 	- web_graph
+[rank0]: 	- web_nlg
+[rank0]: 	- web_questions
+[rank0]: 	- webvid
+[rank0]: 	- wider_face
+[rank0]: 	- wiki40b
+[rank0]: 	- wiki_auto
+[rank0]: 	- wiki_bio
+[rank0]: 	- wiki_dialog
+[rank0]: 	- wiki_table_questions
+[rank0]: 	- wiki_table_text
+[rank0]: 	- wikiann
+[rank0]: 	- wikihow
+[rank0]: 	- wikipedia
+[rank0]: 	- wikipedia_toxicity_subtypes
+[rank0]: 	- wine_quality
+[rank0]: 	- winogrande
+[rank0]: 	- wit
+[rank0]: 	- wit_kaggle
+[rank0]: 	- wmt13_translate
+[rank0]: 	- wmt14_translate
+[rank0]: 	- wmt15_translate
+[rank0]: 	- wmt16_translate
+[rank0]: 	- wmt17_translate
+[rank0]: 	- wmt18_translate
+[rank0]: 	- wmt19_translate
+[rank0]: 	- wmt_t2t_translate
+[rank0]: 	- wmt_translate
+[rank0]: 	- wordnet
+[rank0]: 	- wsc273
+[rank0]: 	- xnli
+[rank0]: 	- xquad
+[rank0]: 	- xsum
+[rank0]: 	- xtreme_pawsx
+[rank0]: 	- xtreme_pos
+[rank0]: 	- xtreme_s
+[rank0]: 	- xtreme_xnli
+[rank0]: 	- yahoo_ltrc
+[rank0]: 	- yelp_polarity_reviews
+[rank0]: 	- yes_no
+[rank0]: 	- youtube_vis
+
+[rank0]: Check that:
+[rank0]:     - if dataset was added recently, it may only be available
+[rank0]:       in `tfds-nightly`
+[rank0]:     - the dataset name is spelled correctly
+[rank0]:     - dataset class defines all base class abstract methods
+[rank0]:     - the module defining the dataset class is imported
+
+[rank0]: The builder directory /home/qingrui/tensorflow_datasets/robosuite_rlds doesn't contain any versions.
+[rank0]: No builder could be found in the directory: /home/qingrui/tensorflow_datasets for the builder: robosuite_rlds.
+[rank0]: No registered data_dirs were found in:
+[rank0]: 	- /home/qingrui/tensorflow_datasets

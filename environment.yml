@@ -1,0 +1,43 @@
+name: Ecomp
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - torch
+      - torchvision
+      - torchaudio
+      - tensorflow==2.15.0
+      - transformers==4.40.1
+      - accelerate
+      - diffusers
+      - peft
+      - timm==1.0.0
+      - mujoco==3.3.4
+      - robosuite==1.5.1
+      - gym==0.25.2
+      - bddl==1.0.1
+      - numpy==1.26.4
+      - pandas
+      - scipy
+      - matplotlib
+      - opencv-python
+      - imageio
+      - compressai
+      - einops
+      - draccus
+      - rich
+      - pillow
+      - h5py
+      - wandb
+      - hydra-core
+      - omegaconf
+      - tqdm
+      - json-numpy
+      - pyyaml
+      - tensorboard
+      - tensorflow-graphics
+      - jsonlines
+      - pyopengl-accelerate
+      - git+https://github.com/moojink/dlimp_openvla.git

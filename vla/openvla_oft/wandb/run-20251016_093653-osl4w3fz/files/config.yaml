@@ -1,0 +1,108 @@
+_wandb:
+    value:
+        cli_version: 0.22.2
+        e:
+            s92a3kzdrqq6b4xtb64jxgjdpmbdba4t:
+                args:
+                    - --vla_path
+                    - openvla-7b
+                    - --data_root_dir
+                    - ../robosuite_rlds
+                    - --dataset_name
+                    - lift_ur5
+                    - --run_root_dir
+                    - lift_ur5_finetune
+                    - --use_l1_regression
+                    - "True"
+                    - --use_diffusion
+                    - "False"
+                    - --use_film
+                    - "False"
+                    - --num_images_in_input
+                    - "2"
+                    - --use_proprio
+                    - "True"
+                    - --batch_size
+                    - "8"
+                    - --learning_rate
+                    - "5e-4"
+                    - --num_steps_before_decay
+                    - "100000"
+                    - --max_steps
+                    - "150005"
+                    - --save_freq
+                    - "10000"
+                    - --save_latest_checkpoint_only
+                    - "False"
+                    - --image_aug
+                    - "True"
+                    - --lora_rank
+                    - "32"
+                    - --wandb_entity
+                    - qrui-sjtu
+                    - --wandb_project
+                    - openvla_ur5
+                    - --run_id_note
+                    - parallel_dec--8_acts_chunk--continuous_acts--L1_regression--3rd_person_img--wrist_img--proprio_state
+                codePath: vla-scripts/finetune.py
+                codePathLocal: vla-scripts/finetune.py
+                cpu_count: 24
+                cpu_count_logical: 32
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "1967317549056"
+                        used: "1738488864768"
+                executable: /home/qingrui/miniconda3/envs/openvla/bin/python3.10
+                git:
+                    commit: e4287e94541f459edc4feabc4e181f537cd569a8
+                    remote: https://github.com/moojink/openvla-oft.git
+                gpu: NVIDIA GeForce RTX 5090
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 21760
+                      memoryTotal: "34190917632"
+                      name: NVIDIA GeForce RTX 5090
+                      uuid: GPU-3d2d0973-f1bc-9eeb-0c04-cae3f675dc9f
+                host: eai
+                memory:
+                    total: "134815903744"
+                os: Linux-5.15.0-139-generic-x86_64-with-glibc2.31
+                program: /home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py
+                python: CPython 3.10.18
+                root: /home/qingrui/robosuite/Agents/openvla-oft
+                startedAt: "2025-10-16T01:36:53.061708Z"
+                writerId: s92a3kzdrqq6b4xtb64jxgjdpmbdba4t
+        m: []
+        python_version: 3.10.18
+        t:
+            "1":
+                - 1
+                - 2
+                - 3
+                - 11
+                - 41
+                - 49
+                - 63
+                - 71
+                - 83
+                - 98
+            "2":
+                - 1
+                - 2
+                - 3
+                - 11
+                - 41
+                - 49
+                - 63
+                - 71
+                - 83
+                - 98
+            "3":
+                - 13
+            "4": 3.10.18
+            "5": 0.22.2
+            "6": 4.40.1
+            "12": 0.22.2
+            "13": linux-x86_64

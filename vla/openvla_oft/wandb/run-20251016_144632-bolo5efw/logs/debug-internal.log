@@ -1,0 +1,24 @@
+{"time":"2025-10-16T14:46:33.105042679+08:00","level":"INFO","msg":"stream: starting","core version":"0.22.2"}
+{"time":"2025-10-16T14:46:38.80802122+08:00","level":"INFO","msg":"stream: created new stream","id":"bolo5efw"}
+{"time":"2025-10-16T14:46:38.808192202+08:00","level":"INFO","msg":"stream: started","id":"bolo5efw"}
+{"time":"2025-10-16T14:46:38.808229254+08:00","level":"INFO","msg":"handler: started","stream_id":"bolo5efw"}
+{"time":"2025-10-16T14:46:38.808310938+08:00","level":"INFO","msg":"sender: started","stream_id":"bolo5efw"}
+{"time":"2025-10-16T14:46:38.808291028+08:00","level":"INFO","msg":"writer: started","stream_id":"bolo5efw"}
+{"time":"2025-10-16T18:20:29.751628601+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/qrui-sjtu/openvla_ur5/bolo5efw/file_stream\": EOF"}
+{"time":"2025-10-16T19:09:25.047103903+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/qrui-sjtu/openvla_ur5/bolo5efw/file_stream\": EOF"}
+{"time":"2025-10-16T19:09:27.471963337+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/qrui-sjtu/openvla_ur5/bolo5efw/file_stream\": EOF"}
+{"time":"2025-10-16T19:09:31.913361189+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/qrui-sjtu/openvla_ur5/bolo5efw/file_stream\": EOF"}
+{"time":"2025-10-16T19:09:40.791577271+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/qrui-sjtu/openvla_ur5/bolo5efw/file_stream\": EOF"}
+{"time":"2025-10-16T22:52:35.832514616+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/qrui-sjtu/openvla_ur5/bolo5efw/file_stream\": EOF"}
+{"time":"2025-10-17T03:37:19.572876778+08:00","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":97256}
+{"time":"2025-10-17T03:37:34.482993721+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"context deadline exceeded\",\"path\":[\"project\",\"run\"]}],\"data\":{\"project\":{\"run\":null}}}"}
+{"time":"2025-10-17T03:37:49.170109602+08:00","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":62}
+{"time":"2025-10-17T04:31:05.289708071+08:00","level":"INFO","msg":"flowcontrol: backed up, offloading to disk","recordNumber":104058}
+{"time":"2025-10-17T04:31:20.13496943+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-10-17T04:31:22.543542784+08:00","level":"INFO","msg":"flowcontrol: unblocked","totalOffloaded":35}
+{"time":"2025-10-17T07:55:57.646435705+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/qrui-sjtu/openvla_ur5/bolo5efw/file_stream\": EOF"}
+{"time":"2025-10-17T09:15:58.989925977+08:00","level":"INFO","msg":"stream: closing","id":"bolo5efw"}
+{"time":"2025-10-17T09:16:00.82865645+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-10-17T09:16:01.55537713+08:00","level":"INFO","msg":"handler: closed","stream_id":"bolo5efw"}
+{"time":"2025-10-17T09:16:01.556341121+08:00","level":"INFO","msg":"sender: closed","stream_id":"bolo5efw"}
+{"time":"2025-10-17T09:16:01.556384813+08:00","level":"INFO","msg":"stream: closed","id":"bolo5efw"}

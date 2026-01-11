@@ -1,0 +1,82 @@
+Detected constants:
+	NUM_ACTIONS_CHUNK: 8
+	ACTION_DIM: 7
+	PROPRIO_DIM: 8
+	ACTION_PROPRIO_NORMALIZATION_TYPE: bounds_q99
+Created backup of original config at: /home/qingrui/robosuite/Agents/openvla-oft/openvla-7b/config.json.back.20251016_100047
+Updated config.json at: /home/qingrui/robosuite/Agents/openvla-oft/openvla-7b/config.json
+Changes made:
+  - Set AutoConfig to "configuration_prismatic.OpenVLAConfig"
+  - Set AutoModelForVision2Seq to "modeling_prismatic.OpenVLAForActionPrediction"
+/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4903: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  warnings.warn(  # warn only once
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  8.26it/s]
+trainable params: 110,828,288 || all params: 7,652,065,472 || trainable%: 1.4483
+# trainable params in proprio_projector: 16818176
+# trainable params in action_head: 151117831
+# total trainable params: 278764295
+[2;36m10/16 [10:00:50][0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Loading existing dataset statistics from                                                                                                               ]8;id=421673;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py\[2mdata_utils.py[0m]8;;\[2m:[0m]8;id=325990;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py#199\[2m199[0m]8;;\
+[2;36m                 [0m         dataset/robosuite_rlds/robosuite_config/[1;36m1.0[0m.[1;36m0[0m/dataset_statistics_34d540f0c02b03001997d66f826789b33debfba9ac50b0609a98c6fafda7a0b8.json.                         [2m                 [0m
+
+######################################################################################
+# Loading the following 1 datasets (incl. sampling weight):                         #
+# robosuite_rlds: ==========================================================1.000000 #
+######################################################################################
+
+[2;36m10/16 [10:00:51][0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Threads per Dataset: [1m[[0m[1;36m1[0m[1m][0m                                                                                                                                  ]8;id=899481;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py\[2mdataset.py[0m]8;;\[2m:[0m]8;id=854252;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py#528\[2m528[0m]8;;\
+[2;36m                [0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Reads per Dataset: [1m[[0m[1;36m1[0m[1m][0m                                                                                                                                    ]8;id=765907;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py\[2mdataset.py[0m]8;;\[2m:[0m]8;id=863046;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py#529\[2m529[0m]8;;\
+[2;36m                [0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Constructing datasets[33m...[0m                                                                                                                                  ]8;id=659461;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py\[2mdataset.py[0m]8;;\[2m:[0m]8;id=359419;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py#532\[2m532[0m]8;;\
+[2;36m                [0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Applying frame transforms on dataset[33m...[0m                                                                                                                   ]8;id=936375;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py\[2mdataset.py[0m]8;;\[2m:[0m]8;id=208316;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/dataset.py#572\[2m572[0m]8;;\
+[2;36m10/16 [10:00:52][0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Saved dataset statistics file at path                                                                                                                  ]8;id=195574;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py\[2mdata_utils.py[0m]8;;\[2m:[0m]8;id=722574;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py#284\[2m284[0m]8;;\
+[2;36m                 [0m         lift_ur5_finetune/openvla-7b+robosuite_rlds+b2+lr-[1;36m0.0005[0m+lora-r32+dropout-[1;36m0.0[0m--image_aug--parallel_dec--2_acts_chunk--continuous_acts--L1_regression--3rd_perso [2m                 [0m
+[2;36m                 [0m         n_img--wrist_img--proprio_state_2/dataset_statistics.json                                                                                                       [2m                 [0m
+  7%|██████████▍                                                                                                                                                 | 10001/150005 [54:01<12:37:30,  3.08it/s]/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+[2;36m10/16 [10:54:53][0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Saved dataset statistics file at path                                                                                                                  ]8;id=571103;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py\[2mdata_utils.py[0m]8;;\[2m:[0m]8;id=331983;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py#284\[2m284[0m]8;;\
+[2;36m                 [0m         lift_ur5_finetune/openvla-7b+robosuite_rlds+b2+lr-[1;36m0.0005[0m+lora-r32+dropout-[1;36m0.0[0m--image_aug--parallel_dec--2_acts_chunk--continuous_acts--L1_regression--3rd_perso [2m                 [0m
+[2;36m                 [0m         n_img--wrist_img--proprio_state_2--10000_chkpt/dataset_statistics.json                                                                                          [2m                 [0m
+Saving Model Checkpoint for Step 10000
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  6.50it/s]
+/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4903: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+Saved merged model for Step 10000 at: lift_ur5_finetune/openvla-7b+robosuite_rlds+b2+lr-0.0005+lora-r32+dropout-0.0--image_aug--parallel_dec--2_acts_chunk--continuous_acts--L1_regression--3rd_person_img--wrist_img--proprio_state_2--10000_chkpt
+  warnings.warn(  # warn only once
+ 13%|████████████████████▌                                                                                                                                     | 20001/150005 [1:49:50<11:41:30,  3.09it/s]/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+[2;36m10/16 [11:50:42][0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Saved dataset statistics file at path                                                                                                                  ]8;id=212143;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py\[2mdata_utils.py[0m]8;;\[2m:[0m]8;id=89151;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py#284\[2m284[0m]8;;\
+[2;36m                 [0m         lift_ur5_finetune/openvla-7b+robosuite_rlds+b2+lr-[1;36m0.0005[0m+lora-r32+dropout-[1;36m0.0[0m--image_aug--parallel_dec--2_acts_chunk--continuous_acts--L1_regression--3rd_perso [2m                 [0m
+[2;36m                 [0m         n_img--wrist_img--proprio_state_2--20000_chkpt/dataset_statistics.json                                                                                          [2m                 [0m
+Saving Model Checkpoint for Step 20000
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  6.91it/s]
+/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4903: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+Saved merged model for Step 20000 at: lift_ur5_finetune/openvla-7b+robosuite_rlds+b2+lr-0.0005+lora-r32+dropout-0.0--image_aug--parallel_dec--2_acts_chunk--continuous_acts--L1_regression--3rd_person_img--wrist_img--proprio_state_2--20000_chkpt
+  warnings.warn(  # warn only once
+ 20%|██████████████████████████████▊                                                                                                                           | 30001/150005 [2:46:10<11:22:03,  2.93it/s]/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/peft/utils/save_and_load.py:180: UserWarning: Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.
+[2;36m10/16 [12:47:02][0m[2;36m [0m[34mINFO    [0m | >> [1m[[0m*[1m][0m Saved dataset statistics file at path                                                                                                                  ]8;id=228352;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py\[2mdata_utils.py[0m]8;;\[2m:[0m]8;id=825024;file:///home/qingrui/robosuite/Agents/openvla-oft/prismatic/vla/datasets/rlds/utils/data_utils.py#284\[2m284[0m]8;;\
+[2;36m                 [0m         lift_ur5_finetune/openvla-7b+robosuite_rlds+b2+lr-[1;36m0.0005[0m+lora-r32+dropout-[1;36m0.0[0m--image_aug--parallel_dec--2_acts_chunk--continuous_acts--L1_regression--3rd_perso [2m                 [0m
+[2;36m                 [0m         n_img--wrist_img--proprio_state_2--30000_chkpt/dataset_statistics.json                                                                                          [2m                 [0m
+Saving Model Checkpoint for Step 30000
+  warnings.warn("Setting `save_embedding_layers` to `True` as embedding layers found in `target_modules`.")
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  6.80it/s]
+/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py:4903: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+Saved merged model for Step 30000 at: lift_ur5_finetune/openvla-7b+robosuite_rlds+b2+lr-0.0005+lora-r32+dropout-0.0--image_aug--parallel_dec--2_acts_chunk--continuous_acts--L1_regression--3rd_person_img--wrist_img--proprio_state_2--30000_chkpt
+  warnings.warn(  # warn only once
+Traceback (most recent call last):                                                                                                                                                                         
+  File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 1142, in <module>
+    finetune()
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/draccus/argparsing.py", line 203, in wrapper_inner
+    response = fn(cfg, *args, **kwargs)
+  File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 1059, in finetune
+    normalized_loss.backward()
+  File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/torch/_tensor.py", line 572, in backward
+    def backward(
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 1142, in <module>
+[rank0]:     finetune()
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/draccus/argparsing.py", line 203, in wrapper_inner
+[rank0]:     response = fn(cfg, *args, **kwargs)
+[rank0]:   File "/home/qingrui/robosuite/Agents/openvla-oft/vla-scripts/finetune.py", line 1059, in finetune
+[rank0]:     normalized_loss.backward()
+[rank0]:   File "/home/qingrui/miniconda3/envs/openvla/lib/python3.10/site-packages/torch/_tensor.py", line 572, in backward
+[rank0]:     def backward(
+[rank0]: KeyboardInterrupt

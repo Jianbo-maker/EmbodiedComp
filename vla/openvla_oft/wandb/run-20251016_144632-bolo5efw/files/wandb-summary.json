@@ -1,0 +1,1 @@
+{"VLA Train/Loss":0.0182037353515625,"VLA Train/Curr Action L1 Loss":0.03612518310546875,"VLA Train/Next Actions L1 Loss":0.015655517578125,"_wandb":{"runtime":66559},"_runtime":66559.771370319,"_timestamp":1.7606636336236074e+09,"VLA Train/Learning Rate":5e-05,"_step":100000}

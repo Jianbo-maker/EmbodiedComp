@@ -1,0 +1,29 @@
+<mujoco model="photo_studio">
+    <compiler coordinate="local"/>
+    <option gravity="0 0 0" integrator="Euler"/>
+
+    <visual>
+        <map znear="0.01" zfar="5"/>
+        <quality shadowsize="2048"/>
+        <global offwidth="1024" offheight="1024"/>
+    </visual>
+
+    <worldbody>
+        <!-- 光照 -->
+        <light name="top_light" pos="0 0 1.5" dir="0 0 -1"
+               diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" ambient="0.4 0.4 0.4"/>
+        <light name="side_light" pos="1 1 0.5" dir="-1 -1 -0.5"
+               diffuse="0.7 0.7 0.7" specular="0.2 0.2 0.2" ambient="0.3 0.3 0.3"/>
+
+        <!-- 地面 -->
+        <geom name="ground" type="plane" size="1 1 0.01" rgba="0.95 0.95 0.95 1"/>
+
+        <!-- 拍摄对象 -->
+        <body name="target" pos="0 0 0.02">
+            <include file="./objects/bottle.xml"/>
+        </body>
+
+        <!-- 摄像机 -->
+        <camera name="photo_cam" pos="0.4 0.3 0.25" quat="0.9239 0.3827 0 0" fovy="40"/>
+    </worldbody>
+</mujoco>

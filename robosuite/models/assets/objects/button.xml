@@ -1,0 +1,33 @@
+<mujoco model="button_model">
+  <asset>
+    <!-- 红色金属材质 -->
+    <texture file="../textures/metal.png" name="tex-metal" type="2d"/>
+    <material name="metal" reflectance="0.5" texrepeat="1 1" texture="tex-metal" texuniform="true" rgba="1 0 0 1"/>
+  </asset>
+
+  <worldbody>
+    <!-- 外层空 body，用作随机放置容器 -->
+    <body name="button_base" pos="0 0 0">
+      <!-- 内层 body，实际按钮对象 -->
+      <body name="object" pos="0 0 0">
+        <!-- 滑动关节，沿 z 方向 -->
+        <joint name="button_slide" type="slide" axis="0 0 1" damping="0.001"/>
+        <!-- 按钮几何 -->
+        <geom name="button_geom" type="cylinder" size="0.015 0.01"
+              pos="0 0 0" material="metal"
+              solimp="0.998 0.998 0.001" solref="0.001 1"
+              density="100" friction="0.95 0.3 0.1" group="0" condim="4"/>
+      </body>
+
+      <!-- placement sampler sites -->
+      <site name="bottom_site" pos="0 0 -0.005" size="0.005" rgba="0 0 0 0"/>
+      <site name="top_site" pos="0 0 0.005" size="0.005" rgba="0 0 0 0"/>
+      <site name="horizontal_radius_site" pos="0.025 0.025 0" size="0.005" rgba="0 0 0 0"/>
+    </body>
+
+    <!-- 桌子 -->
+    <body name="table" pos="0 0 0.8">
+      <geom name="table_collision" type="box" size="0.4 0.4 0.025" rgba="0.8 0.8 0.8 1"/>
+    </body>
+  </worldbody>
+</mujoco>

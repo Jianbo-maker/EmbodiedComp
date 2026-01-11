@@ -1,0 +1,22 @@
+torchrun --standalone --nnodes 1 --nproc-per-node 1 vla-scripts/finetune.py \
+  --vla_path openvla-7b \
+  --data_root_dir ~/tensorflow_datasets \
+  --dataset_name robosuite_rlds \
+  --run_root_dir /mnt/disk2/home/qrui/openvla_checkpoints/ur5_finetune_2 \
+  --use_l1_regression True \
+  --use_diffusion False \
+  --use_film False \
+  --num_images_in_input 2 \
+  --use_proprio True \
+  --batch_size 2 \
+  --grad_accumulation_steps 2 \
+  --learning_rate 5e-4 \
+  --num_steps_before_decay 80001 \
+  --max_steps 100005 \
+  --save_freq 20000 \
+  --save_latest_checkpoint_only False \
+  --image_aug True \
+  --lora_rank 32 \
+  --wandb_entity "qrui-sjtu" \
+  --wandb_project "openvla_ur5" \
+  --run_id_note b2ac2_100000
