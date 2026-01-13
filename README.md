@@ -21,7 +21,7 @@ Yuan Tian, Xiangyang Zhu, Zicheng Zhang, Xiaohong Liu, Weisi Lin, Guangtao Zhai
  </div> 
  
  <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:100%" src="figure/OverFlow.png">
+      <img style="width:100%" src="figure/Overview.png">
  </div>
 </div>
 
