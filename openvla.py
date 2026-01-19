@@ -66,7 +66,7 @@ logging.basicConfig(level=logging.INFO)
 class GenerateConfig:
     model_family: str = "openvla"            
     # Your checkpoint path
-    pretrained_checkpoint: Union[str, Path] = "/home/qingrui/mnt/home/qrui/openvla_checkpoints/ur5_finetune_2/100000_chkpt" 
+    pretrained_checkpoint: Union[str, Path] = "qruisjtu/openvla_ur5_finetuned" 
     use_l1_regression: bool = True
     use_diffusion: bool = False
     num_diffusion_steps_train: int = 50

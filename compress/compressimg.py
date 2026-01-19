@@ -25,18 +25,16 @@ import uuid, shutil
 CAMERARESOLUTION = 256 * 256 
 MODELLIST = [
     'mbt2018_mean',
-    # 'mbt2018',
-    # 'cheng2020_attn',
-    # 'bmshj2018_factorized',
-    # 'bmshj2018_hyperprior',
-    # 'cheng2020_anchor',
-    # 'jpeg',
-    # 'webp',
+    'mbt2018',
+    'cheng2020_attn',
+    'bmshj2018_factorized',
+    'bmshj2018_hyperprior',
+    'cheng2020_anchor',
+    'jpeg',
+    'webp',
     # 'lichpcm',
     # 'dcae',
     # 'rwkv',
-    # 'hevc',
-    # 'vvc',
 ]
 MODELQUALITY = {
     'mbt2018_mean': [1, 2, 3, 4, 5, 6, 7, 8],
@@ -47,8 +45,6 @@ MODELQUALITY = {
     'cheng2020_anchor': [1, 2, 3, 4, 5, 6],
     'jpeg': [5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
     'webp': [5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
-    'hevc': [22, 27, 32, 37, 42, 47],
-    'vvc': [ 30, 37, 42, 47, 52, 55],
     'lichpcm': [1, 2, 3, 4, 5, 6],
     'dcae': [1, 2, 3, 4, 5, 6],
     'rwkv': [1, 2, 3, 4, 5, 6],
@@ -72,8 +68,6 @@ MODELQUADOWN={
     'lichpcm':[[1,'1/8'],[1,'1/4'],[1,'1/2'],[1,'3/4'],[1,'1'],[3,'1']],
     'dcae':[[1,'1/8'],[1,'1/4'],[1,'1/2'],[1,'3/4'],[1,'1'],[3,'1']],
     'rwkv':[[1,'1/8'],[1,'1/4'],[1,'1/2'],[1,'3/4'],[1,'1'],[3,'1']],
-    "hevc":[[47,'1/8'],[47,'3/8'],[47,'5/8'],[47,'1'],[42,'7/8'],[37,'7/8']],
-    "vvc":[[55,'1/8'],[52,'1/4'],[52,'1/2'],[55,'1'],[52,'1'],[47,'1']],
 }
 assert torch.cuda.is_available(),print("cuda is not available")
 device = "cuda" 
