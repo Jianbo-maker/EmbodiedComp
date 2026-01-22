@@ -28,14 +28,14 @@ PROMPT="Pick up the object" #Task prompt for agent
 HORIZON=250              # Maximum number of steps per episode
 SAVEVIDEO=False           #save video after each episode
 ISDISPLAY = True           #show Mujoco render while benchmark
-#============================
+
 
 do_baseline = True       #run benchmark without compress
 num_steps_wait=50        #step to wait before each episode
 Control_freq=10          #control freqency for robosuite
 episodes_times=100       #episode times for one task
 DUMMY_ACTION=[0,0,0,0,0,0,-1]
-
+#============================
 
 result_save_path = pathlib.Path(f"data/benchmark/{BENCHMARKINFO}")
 logging.basicConfig(level=logging.INFO)

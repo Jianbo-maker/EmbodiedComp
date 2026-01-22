@@ -45,12 +45,13 @@ PROMPT="Pick up the object"                    #Task prompt for agent
 HORIZON: int = 250                             # Maximum number of steps per episode
 SAVEVIDEO: bool = False                         #save video after each episode
 ISDISPLAY = True                               #show Mujoco render while benchmark
-#============================
 
-num_steps_wait: int = 10                         
-episodes_times: int = 100                       
-Control_freq: int = 10 
+do_baseline = True       #run benchmark without compress
+num_steps_wait: int = 10        #step to wait before each episode     
+Control_freq=10          #control freqency for robosuite                    
+episodes_times: int = 100       #episode times for one task                       
 DUMMY_ACTION = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0]
+#============================
 
 result_save_path = Path(f"data/benchmark/{BENCHMARKINFO}")
 result_save_path.mkdir(parents=True, exist_ok=True)
@@ -352,10 +353,9 @@ if __name__ == "__main__":
 
     baseline_success_rate = 0.0
     baseline_metadata = []
-    do_baseline = True
+
 
     if do_baseline:
-        cpr = compressimg.COMPRESSIMG()
         base_path = result_save_path / "baseline"
         base_path.mkdir(parents=True, exist_ok=True)
         baseline_success_rate, baseline_metadata = run_task(

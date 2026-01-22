@@ -30,12 +30,13 @@ To align with Real-world applications of Embodied AI, we deploy the compression 
 
 <div align="center">
 
-🤗 [Weight Download:]() [Pi](https://huggingface.co/qruisjtu/pi_ur5_fintuned),[Openvla](https://huggingface.co/qruisjtu/openvla_ur5_finetuned) | 📚 [Paper](https://arxiv.org/abs/2512.11612) | 📈[Benchmark]()
+🤗 [Weight&Dataset Download:]() [Pi](https://huggingface.co/qruisjtu/pi_ur5_fintuned) [Openvla](https://huggingface.co/qruisjtu/openvla_ur5_finetuned) [Image](https://drive.google.com/drive/folders/1uU1vnxE5rk-ok8MNgQ1sgFkZB5UWx3nf?usp=sharing)| 📚 [Paper](https://arxiv.org/abs/2512.11612) | 📈[Benchmark]()
 
 </div>
 
 ## Release
-- [2026/1/14]   [GoogleDrive dataset](https-link) for **EmbodiedComp** is upgrade.
+- [2026/1/22] [Image dataset](https://drive.google.com/drive/folders/1uU1vnxE5rk-ok8MNgQ1sgFkZB5UWx3nf?usp=sharing) for **EmbodiedComp** is upgrade
+- [2026/1/14]   🤗[Huggingface model weight](https://huggingface.co/qruisjtu/pi_ur5_fintuned) for **EmbodiedComp** is upgrade.
 - [2026/1/10] 🔥 [Github repo](https-link) for **EmbodiedComp** is online.
 - [To Do] [ ] Real-world data.
 
@@ -44,7 +45,7 @@ Prepare environment
 ```bash
 git clone https://github.com/Jianbo-maker/EmbodiedComp.git
 cd EmbodiedComp
-# conda env create
+# conda env create (this may take a while)
 conda env create -n Ecomp
 # activate conda
 conda activate Ecomp
@@ -62,22 +63,23 @@ cd ../..
 
 
 # Benchmark with openvla
-For openvla,run directly
+For openvla,run directly(Openvla requires 20GB VRAM for interfacing)
 ```
 python openvla.py
 ```
 It will start downloading weight from huggingface and start benchmark with default settings, you can also change the `BENCHMARK PARAMETERS` in `openvla.py`, including text prompt, benchmark's name, agent's name, etc.
-You can change the`pretrained_checkpoint= `in [openvla.py](openvla.py#L69) to your own weight path 
+You can change the`pretrained_checkpoint= `in [openvla.py](openvla.py#L69) to your own weight path. 
 
-the benchmark's result will be saved under folder `data/benchmark`
+The benchmark's result will be saved under folder `data/benchmark`
 # Benchmark with Pi0&Pi05
-We use openpi-client to interact with pi0 and pi0.5, that means you have to start pi agent first with its own environment.You can see [pisetup](doc/pisetup.md) for our config for ur5 robot.And you can download our finetuned weight [here](https://huggingface.co/qruisjtu/pi_ur5_fintuned). After the pi client is start,you can change the `BENCHMARK PARAMETERS` in `pi.py` including text prompt, benchmarkname, agentname,etc.Then run
+We use openpi-client to interact with pi0 and pi0.5, that means you have to start pi agent server first with its own environment.You can see [pisetup](doc/pisetup.md) for our config for ur5 robot.And you can download our finetuned weight [here](https://huggingface.co/qruisjtu/pi_ur5_fintuned). After the pi client is start,you can change the `BENCHMARK PARAMETERS` in `pi.py` including text prompt, benchmarkname, agentname,etc.Then run
 ```
 python pi.py
 ```
-the benchmark's result will be saved under folder `data/benchmark`
+The benchmark's result will be saved under folder `data/benchmark`
 
-# Use your own compress codec
+# Test your own compress codec
+You can modify the image or add your own compress codec in EmbodiedComp to test. To use your own codec, you have to register it and design a Quality-Downsampling table for certain BPP range. 
 ### 1. Add your codec
 You add your own compress codec in the benchmark by changing following lines of code.
 
@@ -166,9 +168,10 @@ MODELQUADOWN={
 ```
 for example, [1,'1/4'] refers to choose quality 1 and 1/4 Downsampling.Our parameters are sampled from the upper-left envelope curve in the corresponding BPP range(0.01-0.10) of the “PSNR vs. Downsampling Quality” scatter plot for the respective codec.
 
-With proper pairs of quality-downsampling, you can compare different codecs in same BPP range
- <div style="width: 80%; text-align: center; margin:auto;">
-      <img style="width:100%" src="figure/rate_bpp.png">
+With proper pairs of quality-downsampling, you can compare different codecs in same BPP range.For example, we use [0.01-0.1] bpp to align all the codec.
+ <div style="width: 100%; text-align: center; margin:auto;">
+      <img style="width:45%" src="figure/rate_bpp.png">
+      <img style="width:45%" src="figure/step_bpp.png">
  </div>
 
 ## Citation

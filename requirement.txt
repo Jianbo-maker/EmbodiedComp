@@ -28,8 +28,6 @@ tensorflow==2.15.0
 tensorflow-graphics
 timm==0.9.12
 torch
-torchaudio
 torchvision
 tqdm
 transformers==4.40.1
-wandb
